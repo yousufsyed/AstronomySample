@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/margin_large">
+
+    <ImageView
+        android:id="@+id/planet_iv"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/planet_iv_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/shadow"
+        app:layout_constraintBottom_toBottomOf="@+id/planet_iv"
+        app:layout_constraintEnd_toEndOf="@+id/planet_iv"
+        app:layout_constraintStart_toStartOf="@+id/planet_iv"
+        app:layout_constraintTop_toTopOf="@+id/planet_iv" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppTheme.Headline2"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/planet_iv"
+        app:layout_constraintEnd_toEndOf="@+id/planet_iv"
+        app:layout_constraintStart_toStartOf="@+id/planet_iv"
+        app:layout_constraintTop_toTopOf="@+id/planet_iv"
+        tools:text="the Milky way" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_large"
+        tools:text="08-21-2022"
+        android:textAppearance="@style/TextAppearance.SubTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/planet_iv"
+        app:layout_constraintEnd_toStartOf="@+id/favorite_iv"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/favorite_iv"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="@dimen/margin_large"
+        android:layout_marginBottom="@dimen/margin_large"
+        android:src="@drawable/ic_favorite_selector"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/planet_iv"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scroll_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/planet_iv">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/explanation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.Default"
+                tools:text="@string/generic_error_message1" />
+
+            <!--
+            <TextView
+                android:id="@+id/wrapped"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:drawablePadding="@dimen/margin_default"
+                android:textAppearance="@style/TextAppearance.Default"
+                app:drawableStartCompat="@drawable/ic_warped"
+                tools:text="It's wraped" />
+
+            <TextView
+                android:id="@+id/stars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default"
+                android:drawablePadding="@dimen/margin_default"
+                android:textAppearance="@style/TextAppearance.Default"
+                app:drawableStartCompat="@drawable/ic_stars"
+                tools:text="over 200 billion stars" />
+
+            <TextView
+                android:id="@+id/dusty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default"
+                android:drawablePadding="@dimen/margin_default"
+                android:textAppearance="@style/TextAppearance.Default"
+                app:drawableStartCompat="@drawable/ic_dust"
+                tools:text="It's wraped" />
+
+            <TextView
+                android:id="@+id/blackholes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default"
+                android:drawablePadding="@dimen/margin_default"
+                android:textAppearance="@style/TextAppearance.Default"
+                app:drawableStartCompat="@drawable/ic_blackhole"
+                tools:text="It's wraped" />
+            -->
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

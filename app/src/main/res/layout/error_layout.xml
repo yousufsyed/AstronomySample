@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/error_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone"
+    tools:visibility="visible">
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <ImageView
+        android:id="@+id/error_iv"
+        android:layout_width="@dimen/error_icon_size"
+        android:layout_height="@dimen/error_icon_size"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_vector" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/errorTv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/network_error_message1"
+        android:textAppearance="@style/TextAppearance.AppTheme.Headline2" />
+
+    <TextView
+        android:id="@+id/errorTv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingStart="@dimen/margin_xlarge"
+        android:paddingEnd="@dimen/margin_xlarge"
+        android:text="@string/network_error_message2"
+        android:textAppearance="@style/TextAppearance.AppTheme.Headline3" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/refresh"
+        style="@style/AppTheme.Button"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="@string/refresh" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/network_setting"
+        style="@style/AppTheme.Button"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:text="@string/network_setting"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

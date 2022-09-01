@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:padding="@dimen/margin_default"
+        tools:context=".ui.AstronomyActivity">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/astronomy_List_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/astronomy_item" />
+
+        <TextView
+            android:id="@+id/emptyStateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_large"
+            android:text="@string/no_results_found"
+            android:textAppearance="@style/TextAppearance.AppTheme.Headline2"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <include
+            android:id="@+id/error_layout"
+            layout="@layout/error_layout" />
+
+        <TextView
+            android:id="@+id/reorder_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/margin_large"
+            android:background="@drawable/bg_button"
+            android:contentDescription="@string/reorder_list"
+            android:drawablePadding="@dimen/margin_default"
+            android:padding="@dimen/margin_medium"
+            android:text="@string/reorder_list"
+            android:textAppearance="@style/TextAppearance.AppTheme.Headline3"
+            app:drawableStartCompat="@drawable/ic_reorder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

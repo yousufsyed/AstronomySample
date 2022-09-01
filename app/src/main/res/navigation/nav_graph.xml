@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/astronomy_List">
+
+    <fragment
+        android:id="@+id/astronomy_List"
+        android:name="com.adyen.android.assignment.ui.AstronomyListFragment"
+        android:label="@string/title"
+        tools:layout="@layout/fragment_astronomy_list">
+
+        <action
+            android:id="@+id/action_showPlanetDetails"
+            app:destination="@id/planet_details"
+            app:launchSingleTop="true" />
+
+        <action
+            android:id="@+id/action_showReorderList"
+            app:destination="@id/reorder_list" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/planet_details"
+        android:name="com.adyen.android.assignment.ui.PlanetDetailsFragment"
+        android:label="@string/title"
+        tools:layout="@layout/fragment_planet_details">
+
+        <action
+            android:id="@+id/action_showPlanetsList"
+            app:destination="@id/astronomy_List"
+            app:popUpTo="@id/astronomy_List" />
+
+        <argument
+            android:name="data"
+            app:argType="com.adyen.android.assignment.data.AstronomyInfo$PlanetaryData" />
+
+    </fragment>
+
+    <dialog android:id="@+id/reorder_list"
+        android:name="com.adyen.android.assignment.ui.OrderDialogFragment"
+        tools:layout="@layout/fragment_order_dialog" />
+
+</navigation>

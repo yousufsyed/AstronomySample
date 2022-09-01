@@ -1,0 +1,90 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-parcelize'
+}
+
+if (!file("local.gradle").exists()) {
+    exec {
+        commandLine "sh"
+        args = ["-c", "cp local.gradle.example local.gradle"]
+    }
+}
+
+apply from: "../dependencies.gradle"
+apply from: "local.gradle"
+
+android {
+    compileSdkVersion 32
+    defaultConfig {
+        applicationId "com.adyen.android.assignment"
+        minSdkVersion 26
+        targetSdkVersion 32
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "NASA_BASE_URL", "\"https://api.nasa.gov\""
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+    kotlin {
+        kotlinOptions {
+            freeCompilerArgs +="-opt-in=kotlin.RequiresOptIn"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+
+    configurations {
+        implementation.exclude group: 'com.android.tools.external.com-intellij', module: 'intellij-core'
+        implementation.exclude group: 'com.android.tools.external.com-intellij', module: 'kotlin-compiler'
+        implementation.exclude group: 'javax.activation', module: 'javax.activation-api'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+tasks.withType(Test){
+    useJUnitPlatform()
+}
+
+dependencies {
+    implementation project.ext.androidX.values()
+    implementation project.ext.kotlin.values()
+    implementation project.ext.themes.values()
+    implementation project.ext.network.values()
+    implementation project.ext.di.values()
+    implementation project.ext.util.values()
+
+    kapt("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.3.0")
+    kapt(project.ext.annotationProcessor.daggerCompiler)
+    kapt(project.ext.annotationProcessor.lifecycleCompiler)
+    kapt(project.ext.annotationProcessor.roomCompiler)
+
+    testImplementation project.ext.test.values()
+
+    androidTestImplementation "androidx.test:runner:1.4.0"
+    androidTestImplementation "androidx.test.ext:junit:1.1.3"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.4.0"
+}

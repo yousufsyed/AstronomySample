@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Android Assignment</string>
+
+
+    <string name="title">Our Universe</string>
+
+    <string name="network_error_message1">No network connection</string>
+    <string name="network_error_message2">Please check your network connection and try again</string>
+    <string name="network_setting">Network settings</string>
+
+    <string name="generic_error_message1">Oops! something went wrong.</string>
+    <string name="generic_error_message2">Please refresh the page and try again</string>
+    <string name="refresh">Refresh</string>
+
+    <string name="no_results_found">No results found</string>
+    <string name="reorder_list">Reorder list</string>
+
+    <string name="planetary_image">Planetary Image</string>
+    <string name="latest">Latest</string>
+    <string name="favorites">My favorites</string>
+
+    <string name="reset">Reset</string>
+    <string name="orderByTitle">Order by Title</string>
+    <string name="orderByDate">Order by Date</string>
+
+</resources>
